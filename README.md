@@ -3,4 +3,4 @@ WebFlux Server using the Spring WebFlux framework and reactive Kafka which expos
 
 ![Architectue](SSE-Webflux-Kafka.png)
 
-[Walkthrough Article](https://medium.com/egen/server-sent-events-using-spring-webflux-and-reactive-kafka-1a7ddbca4f5d)
+[SSE Medium Article](https://medium.com/egen/server-sent-events-using-spring-webflux-and-reactive-kafka-1a7ddbca4f5d)
