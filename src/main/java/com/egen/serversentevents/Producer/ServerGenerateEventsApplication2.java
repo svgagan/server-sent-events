@@ -18,18 +18,18 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-public class ServerGenerateEventsApplication {
+public class ServerGenerateEventsApplication2 {
 
-    private static final Logger log = LoggerFactory.getLogger(ServerGenerateEventsApplication.class.getName());
+    private static final Logger log = LoggerFactory.getLogger(ServerGenerateEventsApplication2.class.getName());
 
-    private static final String TOPIC = "egen-sse-test-topic";
+    private static final String TOPIC = "sse-test-topic-multiple-100";
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
-    private static final String CLIENT_ID_CONFIG = "trans-string-consumer-egen-new";
+    private static final String CLIENT_ID_CONFIG = "string-producer-2";
 
     private final KafkaSender<String, String> sender;
     private final SimpleDateFormat dateFormat;
 
-    public ServerGenerateEventsApplication(String bootstrapServers){
+    public ServerGenerateEventsApplication2(String bootstrapServers){
 
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
@@ -68,7 +68,7 @@ public class ServerGenerateEventsApplication {
     public static void main(String[] args) throws InterruptedException {
         int count = 20;
         CountDownLatch latch = new CountDownLatch(count);
-        ServerGenerateEventsApplication producer = new ServerGenerateEventsApplication(BOOTSTRAP_SERVERS);
+        ServerGenerateEventsApplication2 producer = new ServerGenerateEventsApplication2(BOOTSTRAP_SERVERS);
         producer.generateMessages(TOPIC, count, latch);
         latch.await(10, TimeUnit.SECONDS);
         producer.close();
